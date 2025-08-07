@@ -1,0 +1,11 @@
+<form method="post" action="{% url 'book_appointment' %}">
+    {% csrf_token %}
+    <input type="hidden" name="doctor_id" value="{{ doctor_id }}">
+    <select name="schedule_id">
+        {% for schedule in schedules %}
+            <option value="{{ schedule.id }}">{{ schedule.date }} {{ schedule.start_time }}-{{ schedule.end_time }}</option>
+        {% endfor %}
+    </select>
+    <textarea name="reason" placeholder="Reason for visit"></textarea>
+    <button type="submit">Book Appointment</button>
+</form>

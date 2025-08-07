@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Doctor Schedule - Smart Clinic{% endblock %}
+{% block content %}
+<h1>Doctor Schedule</h1>
+<ul>
+{% for schedule in schedules %}
+    <li>{{ schedule.date }} {{ schedule.start_time }}-{{ schedule.end_time }} ({{ schedule.is_available|yesno:"Available,Booked" }})</li>
+{% endfor %}
+</ul>
+{% endblock %}

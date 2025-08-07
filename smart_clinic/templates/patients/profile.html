@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<h1>Patient Profile</h1>
+<p>Name: {{ patient.user.get_full_name }}</p>
+<p>Age: {{ patient.age }}</p>
+<p>Gender: {{ patient.gender }}</p>
+<p>Medical History: {{ patient.medical_history }}</p>
+{% endblock %}

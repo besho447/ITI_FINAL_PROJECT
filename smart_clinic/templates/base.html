@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Smart Clinic</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Smart Clinic</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'dashboard' %}">dashboard</a></li>
+                <li><a href="{% url 'register' %}">Register</a></li>
+                <li><a href="{% url 'login' %}">login</a></li>
+                <li><a href="{% url 'patient_profile' %}">Patient Profile</a></li>
+                <li><a href="{% url 'doctor_schedule' %}">Doctor Schedule</a></li>
+                <li><a href="{% url 'book_appointment' %}">Book Appointment</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <img src="{% static 'images/clinic.jpg' %}" alt="Clinic image">
+        {% if messages %}
+            {% for message in messages %}
+                <p style="color: red;">{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>

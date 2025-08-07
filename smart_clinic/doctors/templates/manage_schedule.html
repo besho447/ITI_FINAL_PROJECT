@@ -1,0 +1,12 @@
+<form method="post">
+    {% csrf_token %}
+    <input type="date" name="date" required>
+    <input type="time" name="start_time" required>
+    <input type="time" name="end_time" required>
+    <button type="submit">Add Schedule</button>
+</form>
+<ul>
+{% for schedule in schedules %}
+    <li>{{ schedule.date }} {{ schedule.start_time }}-{{ schedule.end_time }} ({{ schedule.is_available|yesno:"Available,Booked" }})</li>
+{% endfor %}
+</ul>

@@ -1,0 +1,9 @@
+<form method="get">
+    <input type="text" name="specialization" placeholder="Search by specialization">
+    <button type="submit">Search</button>
+</form>
+<ul>
+{% for doctor in doctors %}
+    <li>{{ doctor }} - <a href="{% url 'doctor_schedule' doctor.id %}">View Schedule</a></li>
+{% endfor %}
+</ul>

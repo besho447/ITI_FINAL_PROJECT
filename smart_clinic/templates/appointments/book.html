@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Book Appointment - Smart Clinic{% endblock %}
+{% block content %}
+<h1>Book Appointment</h1>
+<form method="post">
+    {% csrf_token %}
+    <select name="schedule_id">
+        {% for schedule in schedules %}
+            <option value="{{ schedule.id }}">{{ schedule.doctor }} - {{ schedule.date }} {{ schedule.start_time }}-{{ schedule.end_time }}</option>
+        {% endfor %}
+    </select>
+    <textarea name="reason" placeholder="Reason for visit"></textarea>
+    <button type="submit">Book</button>
+</form>
+{% endblock %}

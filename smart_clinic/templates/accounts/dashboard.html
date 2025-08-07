@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Clinic Dashboard</h1>
+<h2>Doctors</h2>
+<ul>
+    {% for doctor in doctors %}
+    <li>{{ doctor.name }} - {{ doctor.specialization }}</li>
+    {% endfor %}
+</ul>
+<h2>Patients</h2>
+<ul>
+    {% for patient in patients %}
+    <li>{{ patient.name }} - Age: {{ patient.age }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}
